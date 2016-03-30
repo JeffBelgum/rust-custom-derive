@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `NewtypeBitOr!` macro in crate `newtype_derive`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, NewtypeBitOr!">
+    <meta name="description" content="API documentation for the Rust `NewtypeBitOrAssign!` macro in crate `newtype_derive`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, NewtypeBitOrAssign!">
 
-    <title>newtype_derive::NewtypeBitOr! - Rust</title>
+    <title>newtype_derive::NewtypeBitOrAssign! - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
@@ -28,7 +28,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='index.html'>newtype_derive</a></p><script>window.sidebarCurrent = {name: 'NewtypeBitOr!', ty: 'macro', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'><a href='index.html'>newtype_derive</a></p><script>window.sidebarCurrent = {name: 'NewtypeBitOrAssign!', ty: 'macro', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -43,17 +43,15 @@
     </nav>
 
     <section id='main' class="content macro">
-<h1 class='fqn'><span class='in-band'><a href='index.html'>newtype_derive</a>::<wbr><a class='macro' href=''>NewtypeBitOr!</a></span><span class='out-of-band'><span id='render-detail'>
+<h1 class='fqn'><span class='in-band'><a href='index.html'>newtype_derive</a>::<wbr><a class='macro' href=''>NewtypeBitOrAssign!</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-12' class='srclink' href='../src/newtype_derive/lib.rs.html#649-668' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-13' class='srclink' href='../src/newtype_derive/lib.rs.html#673-684' title='goto source code'>[src]</a></span></h1>
 <pre class='rust macro'>
-<span class='macro'>macro_rules</span><span class='macro'>!</span> <span class='ident'>NewtypeBitOr</span> {
+<span class='macro'>macro_rules</span><span class='macro'>!</span> <span class='ident'>NewtypeBitOrAssign</span> {
     ((<span class='op'>*</span>) $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tts</span>:<span class='ident'>tt</span>)<span class='op'>*</span>) <span class='op'>=&gt;</span> { ... };
     (() $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tts</span>:<span class='ident'>tt</span>)<span class='op'>*</span>) <span class='op'>=&gt;</span> { ... };
-    ((<span class='kw-2'>&amp;</span><span class='self'>self</span>) $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tts</span>:<span class='ident'>tt</span>)<span class='op'>*</span>) <span class='op'>=&gt;</span> { ... };
-    ((<span class='kw-2'>&amp;</span><span class='self'>self</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>rhs</span>:<span class='ident'>tt</span>)<span class='op'>*</span>) $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tts</span>:<span class='ident'>tt</span>)<span class='op'>*</span>) <span class='op'>=&gt;</span> { ... };
     (($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>rhs</span>:<span class='ident'>tt</span>)<span class='op'>*</span>) $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tts</span>:<span class='ident'>tt</span>)<span class='op'>*</span>) <span class='op'>=&gt;</span> { ... };
 }</pre>
 </section>

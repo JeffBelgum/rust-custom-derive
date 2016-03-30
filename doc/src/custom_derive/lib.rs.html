@@ -4,13 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `C:\users\drk\appdata\local\temp\gh-pages-post-commit-checkout-jj5ppu\src\lib.rs`.">
+    <meta name="description" content="Source to the Rust file `C:\Users\drk\AppData\Local\Temp\gh-pages-checkout-0ufak48r\src\lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
+    
 
     
     
@@ -468,7 +469,26 @@
 <span id="425">425</span>
 <span id="426">426</span>
 <span id="427">427</span>
+<span id="428">428</span>
+<span id="429">429</span>
+<span id="430">430</span>
+<span id="431">431</span>
+<span id="432">432</span>
+<span id="433">433</span>
+<span id="434">434</span>
+<span id="435">435</span>
+<span id="436">436</span>
+<span id="437">437</span>
 </pre><pre class='rust '>
+<span class='comment'>/*
+Copyright ⓒ 2015 rust-custom-derive contributors.
+
+Licensed under the MIT license (see LICENSE or &lt;http://opensource.org
+/licenses/MIT&gt;) or the Apache License, Version 2.0 (see LICENSE of
+&lt;http://www.apache.org/licenses/LICENSE-2.0&gt;), at your option. All
+files in the project carrying such notice may not be copied, modified,
+or distributed except according to those terms.
+*/</span>
 <span class='doccomment'>/*!
 This crate provides a macro that enables the use of custom `derive` attributes.
 
@@ -542,6 +562,7 @@ Third, each derivation macro is expected to result in zero or more items, not in
 
 Finally, `@impl` is merely a trick to pack multiple, different functions into a single macro.  The sequence has no special meaning; it is simply *distinct* from the usual invocation syntax.
 */</span>
+<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>cfg_attr</span>(<span class='ident'>not</span>(<span class='ident'>feature</span> <span class='op'>=</span> <span class='string'>&quot;std&quot;</span>), <span class='ident'>no_std</span>)]</span>
 
 <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
 <span class='attribute'>#[<span class='ident'>macro_export</span>]</span>
@@ -560,7 +581,7 @@ Finally, `@impl` is merely a trick to pack multiple, different functions into a 
         <span class='kw'>enum</span> $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>:<span class='ident'>tt</span>)<span class='op'>*</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_attrs</span>
+            @<span class='ident'>split_attrs</span>
             ($(<span class='attribute'>#[$(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>attrs</span>)<span class='op'>*</span>]</span>,)<span class='op'>*</span>), (), (),
             (<span class='kw'>enum</span> $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>)<span class='op'>*</span>)
         }
@@ -571,7 +592,7 @@ Finally, `@impl` is merely a trick to pack multiple, different functions into a 
         <span class='kw'>pub</span> $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>:<span class='ident'>tt</span>)<span class='op'>*</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_attrs</span>
+            @<span class='ident'>split_attrs</span>
             ($(<span class='attribute'>#[$(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>attrs</span>)<span class='op'>*</span>]</span>,)<span class='op'>*</span>), (), (),
             (<span class='kw'>pub</span> $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>)<span class='op'>*</span>)
         }
@@ -582,7 +603,7 @@ Finally, `@impl` is merely a trick to pack multiple, different functions into a 
         <span class='kw'>struct</span> $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>:<span class='ident'>tt</span>)<span class='op'>*</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_attrs</span>
+            @<span class='ident'>split_attrs</span>
             ($(<span class='attribute'>#[$(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>attrs</span>)<span class='op'>*</span>]</span>,)<span class='op'>*</span>), (), (),
             (<span class='kw'>struct</span> $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>)<span class='op'>*</span>)
         }
@@ -601,14 +622,14 @@ Finally, `@impl` is merely a trick to pack multiple, different functions into a 
 
     */</span>
     (
-        <span class='kw-2'>@</span><span class='ident'>split_attrs</span>
+        @<span class='ident'>split_attrs</span>
         (),
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>non_derives</span>:<span class='ident'>tt</span>,
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>derives</span>:<span class='ident'>tt</span>,
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>:<span class='ident'>tt</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+            @<span class='ident'>split_derive_attrs</span>
             { <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>non_derives</span>, <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span> },
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>derives</span>,
             (),
@@ -617,14 +638,14 @@ Finally, `@impl` is merely a trick to pack multiple, different functions into a 
     };
 
     (
-        <span class='kw-2'>@</span><span class='ident'>split_attrs</span>
+        @<span class='ident'>split_attrs</span>
         (<span class='attribute'>#[<span class='ident'>derive</span>($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>new_drv</span>:<span class='ident'>ident</span> $(($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>new_drv_args</span>:<span class='ident'>tt</span>)<span class='op'>*</span>))<span class='op'>*</span>),<span class='op'>*</span> $(,)<span class='op'>*</span>)]</span>, $(<span class='attribute'>#[$(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>attrs</span>:<span class='ident'>tt</span>)<span class='op'>*</span>]</span>,)<span class='op'>*</span>),
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>non_derives</span>:<span class='ident'>tt</span>,
         ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>derives</span>:<span class='ident'>ident</span>,)<span class='op'>*</span>),
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>:<span class='ident'>tt</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_attrs</span>
+            @<span class='ident'>split_attrs</span>
             ($(<span class='attribute'>#[$(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>attrs</span>)<span class='op'>*</span>]</span>,)<span class='op'>*</span>),
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>non_derives</span>,
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>derives</span>,)<span class='op'>*</span> $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>new_drv</span> $(($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>new_drv_args</span>)<span class='op'>*</span>))<span class='op'>*</span>,)<span class='op'>*</span>),
@@ -633,14 +654,14 @@ Finally, `@impl` is merely a trick to pack multiple, different functions into a 
     };
 
     (
-        <span class='kw-2'>@</span><span class='ident'>split_attrs</span>
+        @<span class='ident'>split_attrs</span>
         (<span class='attribute'>#[<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>new_attr</span>:<span class='ident'>meta</span>]</span>, $(<span class='attribute'>#[$(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>attrs</span>:<span class='ident'>tt</span>)<span class='op'>*</span>]</span>,)<span class='op'>*</span>),
         ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>non_derives</span>:<span class='ident'>tt</span>)<span class='op'>*</span>),
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>derives</span>:<span class='ident'>tt</span>,
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>:<span class='ident'>tt</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_attrs</span>
+            @<span class='ident'>split_attrs</span>
             ($(<span class='attribute'>#[$(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>attrs</span>)<span class='op'>*</span>]</span>,)<span class='op'>*</span>),
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>non_derives</span>)<span class='op'>*</span> <span class='attribute'>#[<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>new_attr</span>]</span>,),
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>derives</span>,
@@ -661,177 +682,177 @@ Finally, `@impl` is merely a trick to pack multiple, different functions into a 
     And yes, as far as I can see, we *have* to have a separate rule for each of those.  What I wouldn&#39;t give for an alternation pattern...
     */</span>
 
-    (<span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+    (@<span class='ident'>split_derive_attrs</span>
         { ($(<span class='attribute'>#[$(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>non_derives</span>:<span class='ident'>tt</span>)<span class='op'>*</span>]</span>,)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>:<span class='ident'>tt</span>)<span class='op'>*</span>) },
         (), (), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>:<span class='ident'>tt</span>)<span class='op'>*</span>)
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>as_item</span>
+            @<span class='ident'>as_item</span>
             $(<span class='attribute'>#[$(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>non_derives</span>)<span class='op'>*</span>]</span>)<span class='op'>*</span>
             $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>)<span class='op'>*</span>
         }
 
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>expand_user_drvs</span>
+            @<span class='ident'>expand_user_drvs</span>
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>)<span class='op'>*</span>)
         }
     };
 
-    (<span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+    (@<span class='ident'>split_derive_attrs</span>
         { ($(<span class='attribute'>#[$(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>non_derives</span>:<span class='ident'>tt</span>)<span class='op'>*</span>]</span>,)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>:<span class='ident'>tt</span>)<span class='op'>*</span>) },
         (), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>:<span class='ident'>ident</span>,)<span class='op'>+</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>:<span class='ident'>tt</span>)<span class='op'>*</span>)
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>as_item</span>
+            @<span class='ident'>as_item</span>
             <span class='attribute'>#[<span class='ident'>derive</span>($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>,)<span class='op'>+</span>)]</span>
             $(<span class='attribute'>#[$(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>non_derives</span>)<span class='op'>*</span>]</span>)<span class='op'>*</span>
             $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>)<span class='op'>*</span>
         }
 
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>expand_user_drvs</span>
+            @<span class='ident'>expand_user_drvs</span>
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>)<span class='op'>*</span>)
         }
     };
 
-    (<span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+    (@<span class='ident'>split_derive_attrs</span>
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>:<span class='ident'>tt</span>,
         (<span class='ident'>Hash</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>:<span class='ident'>tt</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>:<span class='ident'>ident</span>,)<span class='op'>*</span>), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>:<span class='ident'>tt</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+            @<span class='ident'>split_derive_attrs</span>
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>,
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>,)<span class='op'>*</span> <span class='ident'>Hash</span>,), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>
         }
     };
 
-    (<span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+    (@<span class='ident'>split_derive_attrs</span>
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>:<span class='ident'>tt</span>,
         (<span class='ident'>Clone</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>:<span class='ident'>tt</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>:<span class='ident'>ident</span>,)<span class='op'>*</span>), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>:<span class='ident'>tt</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+            @<span class='ident'>split_derive_attrs</span>
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>,
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>,)<span class='op'>*</span> <span class='ident'>Clone</span>,), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>
         }
     };
 
-    (<span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+    (@<span class='ident'>split_derive_attrs</span>
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>:<span class='ident'>tt</span>,
         (<span class='ident'>RustcEncodable</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>:<span class='ident'>tt</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>:<span class='ident'>ident</span>,)<span class='op'>*</span>), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>:<span class='ident'>tt</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+            @<span class='ident'>split_derive_attrs</span>
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>,
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>,)<span class='op'>*</span> <span class='ident'>RustcEncodable</span>,), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>
         }
     };
 
-    (<span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+    (@<span class='ident'>split_derive_attrs</span>
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>:<span class='ident'>tt</span>,
         (<span class='ident'>RustcDecodable</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>:<span class='ident'>tt</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>:<span class='ident'>ident</span>,)<span class='op'>*</span>), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>:<span class='ident'>tt</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+            @<span class='ident'>split_derive_attrs</span>
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>,
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>,)<span class='op'>*</span> <span class='ident'>RustcDecodable</span>,), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>
         }
     };
 
-    (<span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+    (@<span class='ident'>split_derive_attrs</span>
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>:<span class='ident'>tt</span>,
         (<span class='ident'>PartialEq</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>:<span class='ident'>tt</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>:<span class='ident'>ident</span>,)<span class='op'>*</span>), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>:<span class='ident'>tt</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+            @<span class='ident'>split_derive_attrs</span>
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>,
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>,)<span class='op'>*</span> <span class='ident'>PartialEq</span>,), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>
         }
     };
 
-    (<span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+    (@<span class='ident'>split_derive_attrs</span>
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>:<span class='ident'>tt</span>,
         (<span class='ident'>Eq</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>:<span class='ident'>tt</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>:<span class='ident'>ident</span>,)<span class='op'>*</span>), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>:<span class='ident'>tt</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+            @<span class='ident'>split_derive_attrs</span>
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>,
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>,)<span class='op'>*</span> <span class='ident'>Eq</span>,), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>
         }
     };
 
-    (<span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+    (@<span class='ident'>split_derive_attrs</span>
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>:<span class='ident'>tt</span>,
         (<span class='ident'>PartialOrd</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>:<span class='ident'>tt</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>:<span class='ident'>ident</span>,)<span class='op'>*</span>), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>:<span class='ident'>tt</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+            @<span class='ident'>split_derive_attrs</span>
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>,
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>,)<span class='op'>*</span> <span class='ident'>PartialOrd</span>,), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>
         }
     };
 
-    (<span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+    (@<span class='ident'>split_derive_attrs</span>
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>:<span class='ident'>tt</span>,
         (<span class='ident'>Ord</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>:<span class='ident'>tt</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>:<span class='ident'>ident</span>,)<span class='op'>*</span>), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>:<span class='ident'>tt</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+            @<span class='ident'>split_derive_attrs</span>
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>,
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>,)<span class='op'>*</span> <span class='ident'>Ord</span>,), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>
         }
     };
 
-    (<span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+    (@<span class='ident'>split_derive_attrs</span>
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>:<span class='ident'>tt</span>,
         (<span class='ident'>Debug</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>:<span class='ident'>tt</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>:<span class='ident'>ident</span>,)<span class='op'>*</span>), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>:<span class='ident'>tt</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+            @<span class='ident'>split_derive_attrs</span>
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>,
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>,)<span class='op'>*</span> <span class='ident'>Debug</span>,), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>
         }
     };
 
-    (<span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+    (@<span class='ident'>split_derive_attrs</span>
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>:<span class='ident'>tt</span>,
         (<span class='ident'>Default</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>:<span class='ident'>tt</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>:<span class='ident'>ident</span>,)<span class='op'>*</span>), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>:<span class='ident'>tt</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+            @<span class='ident'>split_derive_attrs</span>
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>,
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>,)<span class='op'>*</span> <span class='ident'>Default</span>,), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>
         }
     };
 
-    (<span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+    (@<span class='ident'>split_derive_attrs</span>
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>:<span class='ident'>tt</span>,
         (<span class='ident'>Send</span> ,$(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>:<span class='ident'>tt</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>:<span class='ident'>ident</span>,)<span class='op'>*</span>), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>:<span class='ident'>tt</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+            @<span class='ident'>split_derive_attrs</span>
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>,
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>,)<span class='op'>*</span> <span class='ident'>Send</span>,), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>
         }
     };
 
-    (<span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+    (@<span class='ident'>split_derive_attrs</span>
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>:<span class='ident'>tt</span>,
         (<span class='ident'>Sync</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>:<span class='ident'>tt</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>:<span class='ident'>ident</span>,)<span class='op'>*</span>), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>:<span class='ident'>tt</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+            @<span class='ident'>split_derive_attrs</span>
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>,
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>,)<span class='op'>*</span> <span class='ident'>Sync</span>,), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>
         }
     };
 
-    (<span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+    (@<span class='ident'>split_derive_attrs</span>
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>:<span class='ident'>tt</span>,
         (<span class='ident'>Copy</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>:<span class='ident'>tt</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>:<span class='ident'>ident</span>,)<span class='op'>*</span>), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>:<span class='ident'>tt</span>
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+            @<span class='ident'>split_derive_attrs</span>
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>,
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>,)<span class='op'>*</span> <span class='ident'>Copy</span>,), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>
         }
@@ -846,22 +867,22 @@ Finally, `@impl` is merely a trick to pack multiple, different functions into a 
     The *reason* we care is that, in order to simplify the derivation macros, we want to detect the argument-less case and generate an empty pair of parens.
 
     */</span>
-    (<span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+    (@<span class='ident'>split_derive_attrs</span>
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>:<span class='ident'>tt</span>,
         (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>new_user</span>:<span class='ident'>ident</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>:<span class='ident'>tt</span>)<span class='op'>*</span>), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>:<span class='ident'>tt</span>, ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>:<span class='ident'>tt</span>)<span class='op'>*</span>)
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+            @<span class='ident'>split_derive_attrs</span>
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>, ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>)<span class='op'>*</span>), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>, ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>)<span class='op'>*</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>new_user</span>(),)
         }
     };
 
-    (<span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+    (@<span class='ident'>split_derive_attrs</span>
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>:<span class='ident'>tt</span>,
         (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>new_user</span>:<span class='ident'>ident</span> ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>new_user_args</span>:<span class='ident'>tt</span>)<span class='op'>*</span>), $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>:<span class='ident'>tt</span>)<span class='op'>*</span>), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>:<span class='ident'>tt</span>, ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>:<span class='ident'>tt</span>)<span class='op'>*</span>)
     ) <span class='op'>=&gt;</span> {
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>split_derive_attrs</span>
+            @<span class='ident'>split_derive_attrs</span>
             <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>fixed</span>, ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>)<span class='op'>*</span>), <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>bi_drvs</span>, ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drvs</span>)<span class='op'>*</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>new_user</span>($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>new_user_args</span>)<span class='op'>*</span>),)
         }
     };
@@ -875,16 +896,16 @@ Finally, `@impl` is merely a trick to pack multiple, different functions into a 
     This *has* to be recursive because we need to expand two independent repetition sequences simultaneously, and this causes `macro_rules!` to throw a wobbly.  Don&#39;t want that.  So, recursive it is.
 
     */</span>
-    (<span class='kw-2'>@</span><span class='ident'>expand_user_drvs</span>
+    (@<span class='ident'>expand_user_drvs</span>
         (), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>:<span class='ident'>tt</span>)<span class='op'>*</span>)
     ) <span class='op'>=&gt;</span> {};
 
-    (<span class='kw-2'>@</span><span class='ident'>expand_user_drvs</span>
+    (@<span class='ident'>expand_user_drvs</span>
         (<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drv</span>:<span class='ident'>ident</span> <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>arg</span>:<span class='ident'>tt</span>, $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>:<span class='ident'>tt</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>:<span class='ident'>tt</span>)<span class='op'>*</span>)
     ) <span class='op'>=&gt;</span> {
         <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>user_drv</span><span class='op'>!</span> { <span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>arg</span> $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>)<span class='op'>*</span> }
         <span class='macro'>custom_derive</span><span class='macro'>!</span> {
-            <span class='kw-2'>@</span><span class='ident'>expand_user_drvs</span>
+            @<span class='ident'>expand_user_drvs</span>
             ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>tail</span>)<span class='op'>*</span>), ($(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>it</span>)<span class='op'>*</span>)
         }
     };
@@ -894,7 +915,7 @@ Finally, `@impl` is merely a trick to pack multiple, different functions into a 
     # Miscellaneous Rules
 
     */</span>
-    (<span class='kw-2'>@</span><span class='ident'>as_item</span> $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>i</span>:<span class='ident'>item</span>)<span class='op'>*</span>) <span class='op'>=&gt;</span> {$(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>i</span>)<span class='op'>*</span>};
+    (@<span class='ident'>as_item</span> $(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>i</span>:<span class='ident'>item</span>)<span class='op'>*</span>) <span class='op'>=&gt;</span> {$(<span class='macro-nonterminal'>$</span><span class='macro-nonterminal'>i</span>)<span class='op'>*</span>};
 }
 </pre>
 </section>
@@ -920,6 +941,8 @@ Finally, `@impl` is merely a trick to pack multiple, different functions into a 
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
@@ -940,7 +963,7 @@ Finally, `@impl` is merely a trick to pack multiple, different functions into a 
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
